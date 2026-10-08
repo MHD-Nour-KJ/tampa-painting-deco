@@ -1,0 +1,48 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Protected / Workspace agent files
+.local-testing/
+.worktrees/
+app/test-components/
+PROJECT_GUIDE.md
+*AGENTS*.md
+*.agents*
+.agents/
+.codex/
+Context/
+
+# Scratch & Extraction scripts/data
+*.py
+fb_curl.html
+playwright_fb.html
+fb_mbasic.html
+extracted_images.json
+downloaded_images_metadata.json
+fb_extracted_texts.json
+timeline_posts.txt
+fb_screenshot.png
+downloaded_fb_images/
+verification_screenshots/
