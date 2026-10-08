@@ -1,223 +1,169 @@
-import React, { useState } from 'react';
-import { Search, MapPin, ArrowUpRight, Star, CheckCircle2, Paintbrush, Home, Users } from 'lucide-react';
+import React from 'react';
+import { ArrowUpRight, ArrowRight, CheckCircle2, Phone } from 'lucide-react';
 
 interface HeroSectionProps {
-  onSearch: (service: string, location: string) => void;
+  onSearch?: (service: string, location: string) => void;
   onOpenQuote: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onSearch, onOpenQuote }) => {
-  const [location, setLocation] = useState('Tampa, FL');
-  const [serviceQuery, setServiceQuery] = useState('');
-
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSearch(serviceQuery, location);
-  };
-
+export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenQuote }) => {
   return (
-    <section className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden bg-gradient-to-b from-[#FAFBFD] via-[#F8FAFC] to-white">
-      {/* Whimsical Left Illustration Element (Matching Reference Image 1) */}
-      <div className="hidden lg:flex absolute left-4 xl:left-12 top-32 z-10 animate-float items-center pointer-events-none">
-        <div className="relative">
-          {/* Stylized vector character with sign */}
-          <svg width="120" height="180" viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-sm">
-            {/* Body */}
-            <circle cx="50" cy="30" r="16" fill="#111827" />
-            <path d="M46 22C46 16 54 16 54 22C54 28 46 28 46 22Z" fill="#FBBF24" />
-            <path d="M38 52C38 46 62 46 62 52L66 110H34L38 52Z" fill="#047857" />
-            <path d="M38 110L32 170H42L48 110" fill="#111827" />
-            <path d="M58 110L64 170H54L48 110" fill="#111827" />
-            {/* Arm holding board */}
-            <path d="M62 60L90 48" stroke="#111827" strokeWidth="5" strokeLinecap="round" />
-            {/* The board she holds */}
-            <rect x="75" y="24" width="70" height="42" rx="8" fill="#3B82F6" />
-            <rect x="82" y="32" width="22" height="6" rx="3" fill="#FFFFFF" />
-            <rect x="82" y="44" width="45" height="4" rx="2" fill="#93C5FD" />
-            <rect x="82" y="52" width="35" height="4" rx="2" fill="#93C5FD" />
-            <circle cx="132" cy="45" r="8" fill="#FFFFFF" />
-          </svg>
-        </div>
-      </div>
-
-      {/* Whimsical Right Illustration Element (Matching Reference Image 1) */}
-      <div className="hidden lg:flex absolute right-6 xl:right-14 top-40 z-10 animate-float-delayed items-center pointer-events-none">
-        <div className="relative">
-          {/* Stylized vector character with laptop */}
-          <svg width="130" height="170" viewBox="0 0 130 170" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-sm">
-            <circle cx="68" cy="90" r="42" fill="#D1FAE5" />
-            {/* Person sitting */}
-            <circle cx="70" cy="40" r="14" fill="#111827" />
-            <path d="M60 60C60 54 80 54 80 60L86 105H54L60 60Z" fill="#F87171" />
-            {/* Cross-legged pants */}
-            <path d="M50 105C42 120 70 145 92 135C102 128 85 110 70 105H50Z" fill="#3B82F6" />
-            {/* Laptop */}
-            <rect x="42" y="85" width="34" height="22" rx="3" fill="#111827" />
-            <rect x="36" y="105" width="46" height="4" rx="2" fill="#94A3B8" />
-          </svg>
-        </div>
-      </div>
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-20">
-        {/* Main Display Headline (Matching Image 1) */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-[#111827] tracking-tight leading-[1.12] mb-5">
+    <section className="relative pt-24 sm:pt-28 lg:pt-30 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-b from-[#FAFBFD] via-[#F8FAFC] to-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20">
+        {/* Main Display Headline (Matching Reference 1 Typography & Proportions) */}
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#111827] tracking-tight leading-[1.14] mb-3 sm:mb-4">
           Painting & Deco Experts at <br className="hidden sm:inline" />
           Your{' '}
-          <span className="inline-flex items-center align-middle mx-1 relative">
-            <span className="inline-block relative">
-              <svg className="w-10 h-10 sm:w-14 sm:h-14 inline-block text-[#1EA0B8] stroke-current stroke-[2.2] fill-none" viewBox="0 0 24 24">
-                <path d="M3 10.5L12 3l9 7.5v10a1.5 1.5 0 0 1-1.5 1.5H4.5A1.5 1.5 0 0 1 3 20.5v-10z" />
-                <path d="M9 22V12h6v10" />
-                <circle cx="12" cy="7.5" r="1.5" className="fill-[#1EA0B8]" />
-              </svg>
-            </span>
+          <span className="inline-flex items-center align-middle mx-1 relative -top-0.5 sm:-top-1">
+            <svg
+              className="w-9 h-9 sm:w-12 sm:h-12 lg:w-14 lg:h-14 inline-block text-[#1EA0B8] stroke-current stroke-[2.2] fill-none transition-transform hover:scale-110 duration-300"
+              viewBox="0 0 28 28"
+            >
+              <path
+                d="M4 12.5L14 3.5l10 9V23a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V12.5z"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path d="M19 8V5h-3v2.2" strokeLinecap="round" strokeLinejoin="round" />
+              <path
+                d="M10 25v-8a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <circle cx="14" cy="10" r="1.5" className="fill-[#1EA0B8] stroke-none" />
+            </svg>
           </span>{' '}
           Door
         </h1>
 
         {/* Subtitle */}
-        <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed mb-9 sm:mb-12">
+        <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed mb-5 sm:mb-7">
           Expert home painting and decorative finishes delivered to your doorstep. Get reliable, certified craftsmanship with ease. Fast, clean, and tailored to your space across Tampa Bay.
         </p>
 
-        {/* Interactive Search / Booking Bar (Matching Image 1) */}
-        <form
-          onSubmit={handleSearchSubmit}
-          className="max-w-3xl mx-auto bg-white rounded-full sm:rounded-full p-2 sm:p-2.5 shadow-xl border border-slate-200/80 flex flex-col sm:flex-row items-center gap-2 sm:gap-3 transition-shadow hover:shadow-2xl"
-        >
-          {/* Location Selector */}
-          <div className="w-full sm:w-auto flex items-center gap-2.5 px-4 py-2 sm:py-0 border-b sm:border-b-0 sm:border-r border-slate-200">
-            <MapPin className="w-4 h-4 text-slate-400 shrink-0" />
-            <select
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              className="text-xs sm:text-sm font-semibold text-slate-800 bg-transparent focus:outline-hidden cursor-pointer"
-            >
-              <option value="Tampa, FL">Tampa, FL</option>
-              <option value="South Tampa">South Tampa</option>
-              <option value="St. Petersburg">St. Petersburg</option>
-              <option value="Clearwater">Clearwater</option>
-              <option value="Brandon">Brandon</option>
-              <option value="Carrollwood">Carrollwood</option>
-            </select>
-          </div>
-
-          {/* Service Search Input */}
-          <div className="w-full flex-1 flex items-center px-3 py-1 sm:py-0">
-            <input
-              type="text"
-              value={serviceQuery}
-              onChange={(e) => setServiceQuery(e.target.value)}
-              placeholder="What service are you looking for? (e.g. Interior, Cabinets, Accent Wall)"
-              className="w-full text-xs sm:text-sm text-slate-800 placeholder-slate-400 bg-transparent focus:outline-hidden"
-            />
-          </div>
-
-          {/* Search Button */}
+        {/* Clean Direct Call to Action Group */}
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-3.5 mb-7 sm:mb-9">
           <button
-            type="submit"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#111827] hover:bg-black text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all shrink-0 active:scale-95 shadow-md"
+            onClick={onOpenQuote}
+            className="inline-flex items-center gap-2.5 bg-[#111827] hover:bg-black text-white text-xs sm:text-sm font-semibold px-7 py-3 rounded-full shadow-md hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all"
           >
-            <Search className="w-4 h-4" />
-            <span>Search</span>
+            <span>Get Free Quote</span>
+            <ArrowRight className="w-4 h-4" />
           </button>
-        </form>
+          <a
+            href="tel:8135553326"
+            className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-800 text-xs sm:text-sm font-semibold px-5 py-3 rounded-full border border-slate-200/90 shadow-xs hover:shadow-md transition-all"
+          >
+            <Phone className="w-3.5 h-3.5 text-[#1EA0B8]" />
+            <span>(813) 555-DECO</span>
+          </a>
+        </div>
       </div>
 
-      {/* 3 Feature Cards Row (Matching Image 1) */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 mt-12 sm:mt-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
-          {/* Card 1: Fast booking, instant help */}
+      {/* 3 Prominent Hero Cards (Matching Reference Image 1 Layout & Proportions) */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 items-stretch">
+          {/* Card 1: Fast booking, instant help (Full Height Craftsman Portrait) */}
           <div
             onClick={onOpenQuote}
-            className="group relative h-72 sm:h-80 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
+            className="group relative h-[380px] sm:h-[410px] lg:h-[440px] rounded-[28px] sm:rounded-[32px] overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
           >
             <img
               src="/images/projects/hero_card_1.jpg"
-              alt="Professional craftsman finished interior accent wall"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              alt="Skilled master craftsman painting fine decorative trim in workshop"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-5">
-              <div className="w-full flex items-center justify-between text-white">
-                <span className="font-bold text-base sm:text-lg tracking-tight">
+            {/* Bottom floating pill label without darkening the photo */}
+            <div className="absolute bottom-4 sm:bottom-5 left-4 sm:left-5 right-4 sm:right-5 flex items-center justify-between pointer-events-none">
+              <div className="bg-white/95 backdrop-blur-md px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full shadow-lg border border-white/60 pointer-events-auto">
+                <span className="font-bold text-xs sm:text-sm text-slate-900 tracking-tight">
                   Fast booking, instant help
                 </span>
-                <div className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
-                  <ArrowUpRight className="w-4 h-4" />
-                </div>
+              </div>
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-lg border border-white/60 flex items-center justify-center text-slate-900 group-hover:bg-[#111827] group-hover:text-white transition-all duration-300 pointer-events-auto group-hover:rotate-45">
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-300" />
               </div>
             </div>
           </div>
 
-          {/* Card 2: Skilled experts & 98% satisfaction badge */}
-          <div
-            onClick={onOpenQuote}
-            className="group relative h-72 sm:h-80 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between"
-          >
-            <img
-              src="/images/projects/hero_card_2.jpg"
-              alt="Skilled painting experts interior finish"
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            {/* Top Text Overlay */}
-            <div className="relative z-10 p-5 bg-gradient-to-b from-black/70 via-black/20 to-transparent">
-              <span className="text-white font-bold text-base sm:text-lg drop-shadow-xs">
-                Skilled experts, reliable service
-              </span>
+          {/* Card 2: Two Vertically Stacked Cards (Service Photo + 98% Satisfaction Card) */}
+          <div className="flex flex-col gap-3.5 sm:gap-4 h-[380px] sm:h-[410px] lg:h-[440px]">
+            {/* Top Sub-Card: Skilled Experts Photo */}
+            <div
+              onClick={onOpenQuote}
+              className="flex-1 relative rounded-[26px] sm:rounded-[30px] overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
+            >
+              <img
+                src="/images/projects/hero_card_2.jpg"
+                alt="Friendly painting specialist consulting with homeowner in modern kitchen"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute bottom-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
+                <div className="bg-white/95 backdrop-blur-md px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full shadow-lg border border-white/60 pointer-events-auto">
+                  <span className="font-bold text-xs text-slate-900 tracking-tight">
+                    Skilled experts, reliable service
+                  </span>
+                </div>
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white shadow-lg border border-white/60 flex items-center justify-center text-slate-900 group-hover:bg-[#111827] group-hover:text-white transition-all duration-300 pointer-events-auto group-hover:rotate-45">
+                  <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300" />
+                </div>
+              </div>
             </div>
 
-            {/* Bottom 98% Satisfaction Badge (Exact match to reference image 1) */}
-            <div className="relative z-10 p-4">
-              <div className="bg-[#4F46E5] text-white rounded-2xl p-3.5 flex items-center justify-between shadow-lg">
-                <div className="flex items-center gap-2.5">
-                  {/* Avatar stack */}
-                  <div className="flex -space-x-2">
-                    <img
-                      className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
-                      src="/images/projects/living_room_after.jpg"
-                      alt="Customer review avatar"
-                    />
-                    <img
-                      className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
-                      src="/images/brand/logo-badge.jpg"
-                      alt="Verified badge"
-                    />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xl sm:text-2xl font-extrabold leading-none tracking-tight">
-                      98%
-                    </span>
-                    <span className="text-[10px] text-blue-100 font-medium">
-                      Customer satisfaction
-                    </span>
-                  </div>
+            {/* Bottom Sub-Card: 98% Customer Satisfaction Metric Card */}
+            <div
+              onClick={onOpenQuote}
+              className="relative rounded-[22px] sm:rounded-[26px] px-5 py-3.5 sm:py-4 bg-[#2563EB] text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex items-center justify-between shrink-0"
+            >
+              <div className="flex items-center gap-3">
+                {/* Overlapping Avatars */}
+                <div className="flex -space-x-2">
+                  <img
+                    className="inline-block h-8 w-8 sm:h-9 sm:w-9 rounded-full ring-2 ring-white object-cover"
+                    src="/images/projects/living_room_after.jpg"
+                    alt="Verified homeowner review"
+                  />
+                  <img
+                    className="inline-block h-8 w-8 sm:h-9 sm:w-9 rounded-full ring-2 ring-white object-cover"
+                    src="/images/brand/logo-badge.jpg"
+                    alt="Tampa Painting Deco certified badge"
+                  />
                 </div>
+                <div className="flex flex-col">
+                  <span className="text-xl sm:text-2xl font-extrabold leading-none tracking-tight">
+                    98%
+                  </span>
+                  <span className="text-[10px] sm:text-[11px] text-blue-100 font-medium mt-0.5">
+                    + Customer satisfaction
+                  </span>
+                </div>
+              </div>
 
-                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                  <CheckCircle2 className="w-4 h-4 text-white" />
-                </div>
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/20 backdrop-blur-xs flex items-center justify-center group-hover:bg-white group-hover:text-[#2563EB] transition-colors">
+                <CheckCircle2 className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-white group-hover:text-[#2563EB] transition-colors" />
               </div>
             </div>
           </div>
 
-          {/* Card 3: Safe, easy, on-demand */}
+          {/* Card 3: Safe, easy, on-demand (Full Height Craftsman Inspection Portrait) */}
           <div
             onClick={onOpenQuote}
-            className="group relative h-72 sm:h-80 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
+            className="group relative h-[380px] sm:h-[410px] lg:h-[440px] rounded-[28px] sm:rounded-[32px] overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
           >
             <img
               src="/images/projects/hero_card_3.jpg"
-              alt="Quality decorative wall inspection"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              alt="Craftsman examining smooth painted wall with color swatches"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-5">
-              <div className="w-full flex items-center justify-between text-white">
-                <span className="font-bold text-base sm:text-lg tracking-tight">
+            {/* Bottom floating pill label without darkening the photo */}
+            <div className="absolute bottom-4 sm:bottom-5 left-4 sm:left-5 right-4 sm:right-5 flex items-center justify-between pointer-events-none">
+              <div className="bg-white/95 backdrop-blur-md px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full shadow-lg border border-white/60 pointer-events-auto">
+                <span className="font-bold text-xs sm:text-sm text-slate-900 tracking-tight">
                   Safe, easy, on-demand
                 </span>
-                <div className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
-                  <ArrowUpRight className="w-4 h-4" />
-                </div>
+              </div>
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-lg border border-white/60 flex items-center justify-center text-slate-900 group-hover:bg-[#111827] group-hover:text-white transition-all duration-300 pointer-events-auto group-hover:rotate-45">
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-300" />
               </div>
             </div>
           </div>
