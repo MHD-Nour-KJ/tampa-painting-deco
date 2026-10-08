@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 export const TestimonialSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -10,24 +10,21 @@ export const TestimonialSection: React.FC = () => {
         'I needed an interior refresh for my home office and living room, and Tampa Painting Deco did it in just 1 day. The process was super easy, clean, and the walls look completely brand new!',
       author: 'Priya Sharma',
       location: 'South Tampa, FL',
-      service: 'Interior Living & Office Painting',
-      avatarImg: '/images/projects/decorative_texture_wall.jpg'
+      avatarImg: '/images/testimonials/priya_sharma.jpg'
     },
     {
       quote:
         'We saved over $8,000 by refinishing our kitchen cabinets instead of replacing them. The factory spray finish is so smooth and durable against kids and humidity. True masters of their craft.',
-      author: 'Marcus & Elena Vance',
+      author: 'Elena Vance',
       location: 'Clearwater Beach, FL',
-      service: 'Full Kitchen Cabinet Lacquering',
-      avatarImg: '/images/projects/cabinet_split_after.jpg'
+      avatarImg: '/images/testimonials/elena_vance.jpg'
     },
     {
       quote:
         'Fast response, crystal clear estimate, and zero mess left behind. They repaired drywall settling cracks that other painters refused to touch and blended the texture flawlessly.',
       author: 'David Rodriguez',
       location: 'Carrollwood, FL',
-      service: 'Drywall Repair & Full Interior',
-      avatarImg: '/images/projects/interior_dining_finish.jpg'
+      avatarImg: '/images/testimonials/david_rodriguez.jpg'
     }
   ];
 
@@ -43,91 +40,87 @@ export const TestimonialSection: React.FC = () => {
 
   return (
     <section id="testimonials" className="py-20 sm:py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Pill (Matching Image 4 Top) */}
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-800">
-            <Sparkles className="w-3.5 h-3.5 text-[#1EA0B8]" />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Top Minimalist Header Matching Imagined Concept */}
+        <div className="text-center mb-8 sm:mb-10">
+          <p className="text-xs sm:text-sm font-medium tracking-wide text-slate-700 flex items-center justify-center gap-2">
+            <span className="text-slate-400">•</span>
             <span>People like you trust our service</span>
-            <Sparkles className="w-3.5 h-3.5 text-[#1EA0B8]" />
-          </div>
+            <span className="text-slate-400">•</span>
+          </p>
         </div>
 
-        {/* Wide Dark Testimonial Card (Matching Image 4 Top) */}
-        <div className="bg-[#111827] text-white rounded-[32px] p-8 sm:p-12 lg:p-14 shadow-2xl relative overflow-hidden border border-slate-800">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Avatar with Layered Colored Offset Backing Cards (Exact Match to Image 4) */}
-            <div className="md:col-span-5 flex justify-center">
-              <div className="relative w-48 h-56 sm:w-56 sm:h-64">
-                {/* Layered Card 3 (Bottom Blue) */}
+        {/* Wide Dark Testimonial Card */}
+        <div className="bg-[#0B1120] text-white rounded-[28px] sm:rounded-[32px] p-8 sm:p-12 lg:p-14 shadow-2xl relative overflow-hidden border border-slate-800/80">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-14 items-center">
+            {/* Left Column: Clean Layered Fanning Cards (Matching Reference Exactly) */}
+            <div className="md:col-span-5 flex justify-center md:justify-start">
+              <div className="relative w-48 h-60 sm:w-56 sm:h-72">
+                {/* Layered Card 3 (Back Periwinkle/Blue) */}
                 <div
-                  className="absolute inset-0 rounded-3xl bg-[#3B82F6] transform rotate-12 translate-x-6 translate-y-2 opacity-80"
-                  style={{ width: '100%', height: '100%' }}
+                  className="absolute top-0 bottom-3.5 inset-x-0 rounded-2xl bg-[#5D72E4] origin-bottom-left transform translate-x-10 sm:translate-x-12 rotate-[10deg] shadow-lg transition-transform duration-300 z-0"
+                  aria-hidden="true"
                 />
-                {/* Layered Card 2 (Middle Pink) */}
+
+                {/* Layered Card 2 (Middle Rose/Pink) */}
                 <div
-                  className="absolute inset-0 rounded-3xl bg-[#EC4899] transform rotate-6 translate-x-3 translate-y-1 opacity-90"
-                  style={{ width: '100%', height: '100%' }}
+                  className="absolute top-0 bottom-2 inset-x-0 rounded-2xl bg-[#F4A6BA] origin-bottom-left transform translate-x-5 sm:translate-x-6 rotate-[5deg] shadow-md transition-transform duration-300 z-10"
+                  aria-hidden="true"
                 />
-                {/* Layered Card 1 (Top Coral) */}
-                <div
-                  className="absolute inset-0 rounded-3xl bg-[#F97316] transform -rotate-2 -translate-x-1"
-                  style={{ width: '100%', height: '100%' }}
-                />
-                {/* Foreground Photo */}
-                <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20">
+
+                {/* Layered Card 1 (Front Photo Card) */}
+                <div className="relative z-20 w-full h-full rounded-2xl overflow-hidden shadow-2xl bg-slate-900 border border-white/10">
                   <img
+                    key={current.avatarImg}
                     src={current.avatarImg}
                     alt={current.author}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-opacity duration-300"
                   />
                 </div>
               </div>
             </div>
 
-            {/* Right Quote & Details */}
-            <div className="md:col-span-7 flex flex-col justify-between">
-              <div>
-                {/* Five Star Rating */}
-                <div className="flex items-center gap-1 mb-6 text-amber-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  ))}
-                  <span className="text-xs text-slate-300 ml-2 font-medium">Verified Homeowner</span>
-                </div>
-
-                {/* Quote Text */}
-                <blockquote className="text-lg sm:text-2xl font-medium text-slate-100 leading-relaxed tracking-tight mb-8">
+            {/* Right Column: Clean Editorial Quote, Author & Controls */}
+            <div className="md:col-span-7 flex flex-col justify-between min-h-[220px] sm:min-h-[250px]">
+              {/* Quote */}
+              <div className="mb-6 sm:mb-8">
+                <blockquote
+                  key={`quote-${activeIndex}`}
+                  className="text-lg sm:text-xl lg:text-2xl font-normal text-slate-100 leading-relaxed tracking-normal transition-opacity duration-300"
+                >
                   "{current.quote}"
                 </blockquote>
-
-                {/* Author Info */}
-                <div className="flex flex-col">
-                  <span className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                    {current.author}
-                  </span>
-                  <span className="text-xs sm:text-sm text-slate-400 font-normal">
-                    {current.location} • <span className="text-[#1EA0B8] font-medium">{current.service}</span>
-                  </span>
-                </div>
               </div>
 
-              {/* Prev / Next Circular Navigation Arrows (Bottom Right) */}
-              <div className="flex items-center justify-end gap-3 mt-8 pt-6 border-t border-slate-800">
-                <button
-                  onClick={handlePrev}
-                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white transition-all active:scale-95"
-                  aria-label="Previous testimonial"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="w-10 h-10 rounded-full bg-[#1EA0B8] hover:bg-[#167c8f] flex items-center justify-center text-white transition-all active:scale-95 shadow-md"
-                  aria-label="Next testimonial"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
+              {/* Bottom Row: Author details on left, Controls on right */}
+              <div className="flex items-end justify-between pt-2">
+                {/* Author Info */}
+                <div key={`author-${activeIndex}`} className="flex flex-col transition-opacity duration-300">
+                  <span className="text-base sm:text-lg font-medium text-white tracking-normal">
+                    {current.author}
+                  </span>
+                  <span className="text-xs sm:text-sm text-slate-400 font-normal mt-0.5">
+                    {current.location}
+                  </span>
+                </div>
+
+                {/* Circular Arrow Controls */}
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={handlePrev}
+                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/15 text-slate-300 flex items-center justify-center transition-all duration-200 active:scale-95 border border-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+                    aria-label="Previous testimonial"
+                  >
+                    <ArrowLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="w-10 h-10 rounded-full bg-[#5D72E4] hover:bg-[#4d62d6] text-white flex items-center justify-center transition-all duration-200 active:scale-95 shadow-md shadow-[#5D72E4]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+                    aria-label="Next testimonial"
+                  >
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
