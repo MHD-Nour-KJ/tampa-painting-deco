@@ -35,25 +35,6 @@ export const BentoMetricsSection: React.FC = () => {
                   That's how many neighborhoods we're serving (and counting!)
                 </p>
               </div>
-
-              {/* Organic Green Wavy Doodle (Matching Reference Image 3) */}
-              <div className="absolute -right-4 -bottom-6 pointer-events-none opacity-90">
-                <svg width="180" height="150" viewBox="0 0 180 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M20 130C40 50 110 30 130 90C140 120 160 80 170 40"
-                    stroke="#4ADE80"
-                    strokeWidth="16"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M80 140C90 100 130 90 150 130"
-                    stroke="#4ADE80"
-                    strokeWidth="14"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </div>
             </div>
 
             {/* Box 4 (Pink): 2k+ Homes Revitalized */}
@@ -81,18 +62,6 @@ export const BentoMetricsSection: React.FC = () => {
                 <p className="text-xs sm:text-sm text-orange-100 font-medium mt-3">
                   Available anytime, anywhere you need us
                 </p>
-              </div>
-
-              {/* Organic Swirl Doodle */}
-              <div className="absolute -right-4 -bottom-6 pointer-events-none opacity-85">
-                <svg width="140" height="120" viewBox="0 0 140 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10 110C40 70 80 120 120 50"
-                    stroke="#FFEDD5"
-                    strokeWidth="14"
-                    strokeLinecap="round"
-                  />
-                </svg>
               </div>
             </div>
 
@@ -133,18 +102,6 @@ export const BentoMetricsSection: React.FC = () => {
                 <span className="w-2 h-2 rounded-full bg-[#FB923C]" />
                 <span>Customer-first mindset</span>
               </div>
-            </div>
-
-            {/* Organic Orange Doodle in corner */}
-            <div className="absolute right-0 top-0 bottom-0 pointer-events-none opacity-40">
-              <svg width="240" height="140" viewBox="0 0 240 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M10 30C80 140 180 -10 230 110"
-                  stroke="#FB923C"
-                  strokeWidth="20"
-                  strokeLinecap="round"
-                />
-              </svg>
             </div>
           </div>
         </div>
